@@ -1,5 +1,5 @@
 # NORVI-GSM-AE07-T-L
-ESP32 based Controller with Transistor Outputs and LTE communication.
+ESP32-based Controller with Transistor Outputs and LTE communication.
 
 USB Programmable Controller with multiple connectivity channels. 
 Ideal for an IoT gateway or data transmission applications. 
