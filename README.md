@@ -16,3 +16,6 @@ Digital Inputs
 Transistor Outputs
 DIN-Rail mount
 Expansions Supported
+
+Datasheet:   https://drive.google.com/open?id=1WicfGdXMkg2fDqQHZyZiIwV8HrSfg1ce&usp=drive_fs
+User Guide:  https://drive.google.com/open?id=1e8X1ZhhdPTUJUo0vhXmfTynppfNY0VP4&usp=drive_fs
