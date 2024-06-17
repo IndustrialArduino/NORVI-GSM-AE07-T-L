@@ -25,36 +25,32 @@
 #define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-
 Adafruit_ADS1115 ads1;
 Adafruit_ADS1115 ads2;
 
 #define ANALOG_PIN_0 36
 
-#define INPUT1 35
-#define INPUT2 34
-#define INPUT3 21
-#define INPUT4 14
-#define INPUT5 13
-#define INPUT6 4
-#define INPUT7 15
-#define INPUT8 26
+#define INPUT1 34
+#define INPUT2 35
+#define INPUT3 14
+#define INPUT4 13
+#define INPUT5 5
+#define INPUT6 15
+#define INPUT7 19
 
 #define OUTPUT1 12
 #define OUTPUT2 2
 #define OUTPUT3 27
-#define OUTPUT4 5
+#define OUTPUT4 4
 #define OUTPUT5 23
 #define OUTPUT6 18
 
 #define RS485_RX 25
-#define RS485_TX 19
+#define RS485_TX 26
 #define RS485_FC 22
 
 #define GSM_RX 32
 #define GSM_TX 33
-
-
 
 unsigned long int timer1 = 0;
 int analog_value = 0;
@@ -64,7 +60,6 @@ String adcString[8];
   
 int readSwitch(){
   analog_value = analogRead(ANALOG_PIN_0);
-
  
   return analog_value                                                                                                ; //Read analog
 }
@@ -73,8 +68,7 @@ int readSwitch(){
 
 // ================================================ SETUP ================================================
 void setup() {
- 
-  
+   
   Serial.begin(9600);
 
   Serial.println("Hello");
@@ -93,7 +87,6 @@ void setup() {
 
   display.display();
 
-
   Serial.println("Hello");
 
   pinMode(RS485_FC, OUTPUT);
@@ -104,9 +97,7 @@ void setup() {
   pinMode(OUTPUT4, OUTPUT);
   pinMode(OUTPUT5, OUTPUT);
   pinMode(OUTPUT6, OUTPUT);
-
-   
-   
+     
 
   pinMode(INPUT1, INPUT);
   pinMode(INPUT2, INPUT);
@@ -114,14 +105,9 @@ void setup() {
   pinMode(INPUT4, INPUT);
   pinMode(INPUT5, INPUT);
   pinMode(INPUT6, INPUT);
-  pinMode(INPUT7, INPUT);
-  pinMode(INPUT8, INPUT);
-
-  
-  
-  
+  pinMode(INPUT7, INPUT);  
+    
   adcAttachPin(36);
-
 
   digitalWrite(RS485_FC, HIGH);   // RS-485 
   timer1 = millis();
@@ -147,8 +133,6 @@ void setup() {
 }
 
 
-
-
 void loop() {
   
 
@@ -163,14 +147,20 @@ void loop() {
     int inByte = Serial2.read();
     Serial.write(inByte);
   }
-
  
  
-  Serial.print(digitalRead(INPUT1));Serial.print(digitalRead(INPUT2));Serial.print(digitalRead(INPUT3));Serial.print(digitalRead(INPUT4));Serial.print(digitalRead(INPUT5));Serial.print(digitalRead(INPUT6));Serial.print(digitalRead(INPUT7));Serial.print(digitalRead(INPUT8));
+  Serial.print(digitalRead(INPUT1));
+  Serial.print(digitalRead(INPUT2));
+  Serial.print(digitalRead(INPUT3));
+  Serial.print(digitalRead(INPUT4));
+  Serial.print(digitalRead(INPUT5));
+  Serial.print(digitalRead(INPUT6));
+  Serial.print(digitalRead(INPUT7));
   Serial.println(""); 
 
   Serial.println(""); 
-  Serial.print("Push button  ");Serial.println(readSwitch());
+  Serial.print("Push button  ");
+  Serial.println(readSwitch());
   Serial.println(""); 
   
 
@@ -228,7 +218,5 @@ void loop() {
    
  //Serial2.println("AT");
  delay(1000);
- 
-  
 
 }
